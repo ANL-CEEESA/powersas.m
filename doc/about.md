@@ -16,4 +16,4 @@ This work is supported by the Laboratory Directed Research and Development (LDRD
 * Rui Yao, Feng Qiu, Kai Sun, “Contingency Analysis Based on Partitioned and Parallel Holomorphic Embedding”, IEEE Transactions on Power Systems, in press.
 
 ### License
--- to be added.
+This software is under BSD license. Please refer to LICENSE.md for details.
