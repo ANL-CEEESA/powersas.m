@@ -1,0 +1,12 @@
+envDependentScript.m
+
+*.mat
+*.m~
+restoration/*
+output/*
+misc/*
+*.fig
+*.json
+*.asv
+*.raw
+*/.gitignore
