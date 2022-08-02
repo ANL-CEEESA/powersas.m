@@ -4,6 +4,7 @@
 * Rui Yao, Argonne National Laboratory <<ryao@anl.gov>>
 * Feng Qiu, Argonne National Laboratory <<fqiu@anl.gov>>
 * Kai Sun, University of Tennessee, Knoxville <<kaisun@utk.edu>>
+* Jianzhe Liu, Argonne National Laboratory <<jianzhe.liu@ieee.org>>
 
 ### Acknowledgement
 This work is supported by the Laboratory Directed Research and Development (LDRD) program of Argonne National Laboratory, provided by the U.S. Department of Energy Office of Science under Contract No. DE-AC02-06CH11357, and the U.S. Department of Energy Office of Electricity, Advanced Grid Modeling program under Grant DE-OE0000875.
