@@ -4,7 +4,7 @@ function res=runPowerSAS(simType,data,options,varargin)
 % FUNCTION runPowerSAS
 %
 % Top-level function for calling PowerSAS
-% Author: Rui Yao <ruiyao@ieee.org>
+% Author: Rui Yao <ruiyao@ieee.org> 
 %
 % Copyright (C) 2021, UChicago Argonne, LLC. All rights reserved.
 %
@@ -167,9 +167,9 @@ function options=regulateOptions(options)
 if nargin<1
     options=[];
 end
-if ~isfield(options,'dataPath');options.dataPath=[pwd,'/data'];end
+if ~isfield(options,'dataPath');options.dataPath=[pwd,'\data'];end
 if ~isfield(options,'settingPath');options.settingPath=options.dataPath;end
 if ~isfield(options,'dbstop');options.dbstop=0;end
 if ~isfield(options,'output');options.output=0;end
-if ~isfield(options,'outputPath');options.outputPath=[pwd,'/output'];end
+if ~isfield(options,'outputPath');options.outputPath=[pwd,'\output'];end
 end
