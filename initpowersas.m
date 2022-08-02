@@ -43,6 +43,8 @@ addpath([homePath,'/logging']);
 addpath([homePath,'/tests']);
 addpath([homePath,'/example']);
 
+savepath
+
 clearAllTempFiles();
 
 end
