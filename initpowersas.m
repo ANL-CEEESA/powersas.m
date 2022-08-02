@@ -3,8 +3,8 @@ function initpowersas()
 %
 % FUNCTION initpowersas
 %
-% Initializing PowerSAS environment.
-% Author: Rui Yao <ruiyao@ieee.org>
+% Initializing PowerSAS environment, keep it in the main folder.
+% Author: Rui Yao <ruiyao@ieee.org> Jianzhe Liu <jianzhe.liu@ieee.org>
 %
 % Copyright (C) 2021, UChicago Argonne, LLC. All rights reserved.
 %
