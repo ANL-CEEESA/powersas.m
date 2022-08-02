@@ -5,7 +5,7 @@ Semi-analytical solutions (SAS) is a family of computational methods that uses c
 
 ### 2. What are the advantages of SAS?
 
-In power system modeling and analysis, SAS has proven several features:
+In power system modeling and analysis, SAS has been proven to have the following features:
 
 * **High numerical robustness.** Steady-state analysis usually requires solving nonlinear algebraic equations. Traditional tools usually use Newton-Raphson method or its variants, whose results can be highly dependent on the selection of starting point and they suffer from non-convergence problem. In contrast, SAS provides much better convergence thanks to the high-level analytical nature. 
 
