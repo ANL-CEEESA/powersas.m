@@ -47,7 +47,7 @@ To perform power flow analysis, call the `runPowerSAS` function as follows:
 ```Matlab
 res=runPowerSAS('pf',data,options)
 ```
-where the argument `data` can either be a string of file name or a `SysData` struct. When `data` is a string, the 
+where the argument `data` can either be a string of file name or a `SysData` struct.  
 
 Below are some examples:
 
