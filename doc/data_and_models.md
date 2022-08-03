@@ -4,7 +4,7 @@ Currently PowerSAS.m supports extended PSAT (Matlab) data format. Support for ot
 
 ### 2. Extension of PSAT (Matlab) format
 #### 2.1 Automatic generation control (AGC) model
-Here PowerSAS provides a simple AGC model. It is named as `Agc.con` in data files and it is a N$times$4 matrix. Each column is defined as below:
+Here PowerSAS provides a simple AGC model. It is named as `Agc.con` in data files and it is a N$\times$4 matrix. Each column is defined as below:
 Column  | Content
 -------| -------------
 1 | Bus index
