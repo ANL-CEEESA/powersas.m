@@ -322,6 +322,7 @@ Column  | Content
 
 #### variables `evtFault` and `evtFaultSpec`
 ([back to top](#11-settings-file))
+In `eventList`, when the 4th column (event type) equals 6 (apply or clear faults, respectively), the index of the fault events in `evtFault` corresponds to the 5th column of `eventList`. In the current version, we only consider three-phase grounding faults. 
 ##### variable `evtFault`
 Column  | Content
 -------| -------------
