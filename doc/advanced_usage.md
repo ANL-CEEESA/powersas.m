@@ -281,7 +281,8 @@ Column  | Content
 `evtZipSpec2` has the same format as PSAT ZIP load format, which represents the change of ZIP load. Whether the event is specified as add/cut load does not make difference.
 
 #### variables `evtInd` and `evtIndSpec`
-([back to top](#11-settings-file))
+([back to top](#11-settings-file)) 
+In `eventList`, when the 4th column (event type) equals 3 or 9 (add or cut induction motors, respectively), the index of the induction motor events in `evtInd` corresponds to the 5th column of `eventList`. 
 ##### variable `evtInd`
 ([back to top](#11-settings-file))
 Column  | Content
