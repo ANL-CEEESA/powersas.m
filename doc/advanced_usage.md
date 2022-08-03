@@ -239,6 +239,7 @@ When there are synchronous generators in the system model, `Efstd` is needed to 
 ([back to top](#11-settings-file))
 In `eventList`, when the 4th column (event type) equals 1 or 7 (add or cut line, respectively), the index of the line events in `evtLine` corresponds to the 5th column of `eventList`. 
 ##### variable `evtLine`
+([back to top](#11-settings-file))
 Column  | Content
 -------| -------------
 1 | Index of line events (from 5th column of `eventList`)
@@ -246,6 +247,7 @@ Column  | Content
 3 | End index in `evtLineSpec`
 
 ##### variable `evtLineSpec`
+([back to top](#11-settings-file))
 Column  | Content
 -------| -------------
 1 | Index of line 
@@ -258,6 +260,7 @@ Column  | Content
 ([back to top](#11-settings-file))
 In `eventList`, when the 4th column (event type) equals 2 or 8 (add/cut static load), the index of the load events in `evtZip` corresponds to the 5th column of `eventList`. 
 ##### variable `evtLine`
+([back to top](#11-settings-file))
 Column  | Content
 -------| -------------
 1 | Index of load events (from 5th column of `eventList`)
@@ -266,17 +269,20 @@ Column  | Content
 4 | End index in `evtZipSpec` or `evtZipSpec2`
 
 ##### variable `evtZipSpec`
+([back to top](#11-settings-file))
 Column  | Content
 -------| -------------
 1 | Index of zip loads in system base state 
 2 | Add/cut mark, 0 - add load, 1 - cut load
 
 ##### variable `evtZipSpec2` (recommended)
+([back to top](#11-settings-file))
 `evtZipSpec2` has the same format as PSAT ZIP load format, which represents the change of ZIP load. Whether the event is specified as add/cut load does not make difference.
 
 #### variables `evtInd` and `evtIndSpec`
 ([back to top](#11-settings-file))
 ##### variable `evtInd`
+([back to top](#11-settings-file))
 Column  | Content
 -------| -------------
 1 | Index of induction motor events (from 5th column of `eventList`)
@@ -284,6 +290,7 @@ Column  | Content
 3 | End index in `evtIndSpec`
 
 ##### variable `evtIndSpec`
+([back to top](#11-settings-file))
 Column  | Content
 -------| -------------
 1 | Index of induction motor 
@@ -301,6 +308,7 @@ Column  | Content
 3 | End index in `evtSynSpec`
 
 ##### variable `evtSynSpec`
+([back to top](#11-settings-file))
 Column  | Content
 -------| -------------
 1 | Index of synchronous generator
@@ -319,6 +327,7 @@ Column  | Content
 3 | End index in `evtFaultSpec`
 
 ##### variable `evtFaultSpec`
+([back to top](#11-settings-file))
 Column  | Content
 -------| -------------
 1 | Index of fault line
