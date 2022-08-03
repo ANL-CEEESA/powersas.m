@@ -302,6 +302,7 @@ Column  | Content
 
 #### variables `evtSyn` and `evtSynSpec`
 ([back to top](#11-settings-file))
+In `eventList`, when the 4th column (event type) equals 4 or 10 (add or cut synchronous generators, respectively), the index of the synchronous generator events in `evtSyn` corresponds to the 5th column of `eventList`. 
 ##### variable `evtSyn`
 Column  | Content
 -------| -------------
