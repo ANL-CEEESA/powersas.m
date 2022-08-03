@@ -179,6 +179,7 @@ Column  | Content
 7 | Timestep (default 0.01)
 
 ##### Table 2. Event types
+([back to top](#11-settings-file))
 Value  | Event type
 -------| -------------
 0 | Calculate steady-state at start
