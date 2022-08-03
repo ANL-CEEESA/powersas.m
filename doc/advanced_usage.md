@@ -98,7 +98,7 @@ Example 2 illustrates the use of PowerSAS.m to perform extended-term simulation.
 #### Example 2: Extended-term simulation
 We want to study the response of a 4-bus system under periodic disturbances. The entire simulated process is 500 seconds. Starting at 60 s and continuing until 270 s, the system undergoes events of adding/shedding loads every 30 s.  
 
-The key settings of the simulation is:
+The key settings of the simulation are:
 ```Matlab
 % settings_d_004_2a_agc.m
 
