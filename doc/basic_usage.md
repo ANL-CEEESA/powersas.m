@@ -70,8 +70,8 @@ Continuation power flow (CPF) analysis in PowerSAS.m features enhanced efficienc
 res=runPowerSAS('cpf',data,options,varargin)
 ```
 where `options` (optional) specifies the options of CPF analysis, and `varargin` are the input arguments:
-* `varargin{1}` (optional) is the ramping direction of load, which is an N$\times$12 matrix, the first column is the index of the bus, and the columns 5-10 are the ZIP load increase directions.
-* `varargin{2}` (optional) is the ramping direction of generation power, which is an N$\times$2 matrix, the first column is the index of the bus, and the 2nd column is the generation increase directions.
+* `varargin{1}` (optional) is the ramping direction of load, which is an $\text{N}\times \text{12}$ matrix, the first column is the index of the bus, and the columns 5-10 are the ZIP load increase directions.
+* `varargin{2}` (optional) is the ramping direction of generation power, which is an $\text{N}\times \text{2}$ matrix, the first column is the index of the bus, and the 2nd column is the generation increase directions.
 * `varargin{3}` (optional) is the snapshot of the starting state, with which the computation of starting steady state is skipped.
 
 Some examples can be found in `example/ex_cpf.m`.
@@ -103,7 +103,7 @@ Transient stability anslysis (TSA) assesses the system dynamic behavior and stab
 res=runPowerSAS('tsa',data,options,varargin)
 ```
 where `options` (optional) specifies the options of TSA. When not using customized options, set `options=[]`. And `varargin` are the input arguments:
-* `varargin{1}` (mandatory) is a N$\times$6 matrix specifying the faults:
+* `varargin{1}` (mandatory) is a $\text{N}\times \text{6}$ matrix specifying the faults:
     * The 1st column is the index of line where the fault happens. 
     * The 2nd column is the relative position of the fault, 0.0 stands for the starting terminal and 1.0 stands for the ending terminal. For example, 0.5 means the fault happens in the middle point of the line.
     * The 3rd and 4th columns are the resistance and reactance of the fault.
