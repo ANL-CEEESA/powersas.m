@@ -26,12 +26,15 @@ For more details, please refer to our recent paper:
 On **dynamic analysis**, we have compared with serveral most commonly used traditional numerical approaches for solving ODE/DAEs, including modified Euler, Runge-Kutta, and trapezoidal methods. Tests of transient-stability analysis on IEEE 39-bus system model and large-scale mdodified Polish 2383-bus system model have verified that SAS has significant advantages over the traditional methods in both accuracy and efficiency. 
 
 **Accuracy comparison on IEEE 39-bus system (1) -- Comparison with fixed-time-step traditional methods**
-![x](/img/accuracy_039_1.png)
+![accuracy_039_1](https://user-images.githubusercontent.com/96191387/183999952-362734f7-d40c-4d27-aa79-eb48bdebcebf.png)
 
 **Accuracy comparison on IEEE 39-bus system (2) -- Comparison with variable-time-step traditional method**
-![x](/img/accuracy_039_2.png)
+![accuracy_039_2](https://user-images.githubusercontent.com/96191387/184000210-90382d81-06bb-4cf6-a423-b8588579e0fd.png)
+
 **Computation time comparison on IEEE 39-bus system**
-![x](/img/comp_time_039.png)
+
+![comp_time_039](https://user-images.githubusercontent.com/96191387/184000437-6aa9150e-d4b1-4297-b982-61e3e68bc2b8.png)
+
 For more details, please refer to our recent paper:
 
 * Rui Yao, Yang Liu, Kai Sun, Feng Qiu, Jianhui Wang,"Efficient and Robust Dynamic Simulation of Power Systems with Holomorphic Embedding", IEEE Transactions on Power Systems, 35 (2), 938 - 949, 2020.
@@ -42,12 +45,14 @@ Static Security Region (SSR) is an important decision-support tool showing regio
 
 We test SSR on IEEE 39-bus system by varying active power of buses 3&4. The active power of buses 3&4 are sampled uniformly over the interval of [-4000, 4000] MW. The figure below shows the SSR derived by PSS/E and PowerSAS.m. It shows that PSS/E result have some irregular outliers (about 0.1% of the samples) outside of the SSR and actually are not correct solutions of power flow equations. In contrast, PowerSAS.m correctly identifies the SSR.
 
-![x](/img/ssa_benchmarking.png)
+![ssa_benchmarking](https://user-images.githubusercontent.com/96191387/184000532-d838e7c4-7dc3-4fd6-98ad-486a596ef33d.png)
+
 
 ##### 3.2.2 N-k Contingency analysis
 Contingency ananlysis also has convergence challenges due to large disturbances. Here we perform benchmarking between PSS/E (with and without non-divergence options) and PowerSAS.m on the N-25 contingency analysis on a reduced eastern-interconnection (EI) system with 458 buses. We increase the load & generation level by 15%, 20%, and 20.7%, respectively, as 3 different loading scenarios (loading margin is 20.791%). In each scenario, we randomly choose 5000 N-25 contingency samples.
 
-![x](/img/contingency_458.png)
+![contingency_458](https://user-images.githubusercontent.com/96191387/184000600-6ac3101f-d8bc-49bb-b85d-4cea43ab3549.png)
+
 
 The figure shows the percentage of correct results using different tools. It can be seen that PSS/E has some chance to deliver incorrect results, and the chance increases with loading level. In contrast, PowerSAS.m still returns results all correctly.
 
