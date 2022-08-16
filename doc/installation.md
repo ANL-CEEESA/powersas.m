@@ -16,7 +16,7 @@ Matlab (7.1 or later) or GNU Octave (4.0.0 or later).
     * `/doc`: Documentation.
 
 ### 3. Test
- * Execute command `initpowersas` to initilize the environment, then execute `test_powersas` to run tests. You should expect all tests to pass.
+ * Execute command `initpowersas` to initialize the environment, then execute `test_powersas` to run tests. You should expect all tests to pass.
 
 ### 4. Initialization
 To initialize PowerSAS.m, add the main directory of PowerSAS.m to your Matlab or GNU Octave path and run the command `initpowersas`. This will ensure that all the functions of PowerSAS.m are added to the path and thus callable.
