@@ -1,7 +1,0 @@
-# TEST USE
-
-This file is for test only.
-
-02/07/2023
-
-Test again.
