@@ -37,7 +37,6 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
-    'sphinx_copybutton',
 ]
 
 # Configuration options for plot_directive. See:
