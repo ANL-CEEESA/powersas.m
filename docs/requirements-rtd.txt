@@ -1,0 +1,17 @@
+cvxopt
+numpy
+scipy
+sympy
+pandas
+matplotlib
+openpyxl
+xlsxwriter
+dill
+pathos
+tqdm
+pyyaml
+coloredlogs
+ipython
+numpydoc
+sphinx-copybutton
+sphinx_rtd_theme
