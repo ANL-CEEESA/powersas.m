@@ -72,7 +72,6 @@ See the GitHub repository for a full list of contributors.
 
    install.rst
    modeling.rst
-   cases.rst
    configref.rst
    faq.rst
    troubleshooting.rst
@@ -85,8 +84,6 @@ See the GitHub repository for a full list of contributors.
    :hidden:
    :caption: API References
    :maxdepth: 3
-
-   andes.rst
 
 Indices and tables
 ==================
