@@ -10,7 +10,7 @@
 
 If you are using **PowerSAS.m** in research work to be published, please include explicit citation of our work in your publication. Please place the following entries in your bibliography:
 
-[1]. J. Liu, R. Yao, F. Qiu, Y. Liu and K. Sun, "PowerSAS.m – An Open-Source Power System Simulation Toolbox Based on Semi-Analytical Solution Technologies," in IEEE Open Access Journal of Power and Energy, doi: 10.1109/OAJPE.2023.3245040.
+[1]. J. Liu, R. Yao, F. Qiu, Y. Liu and K. Sun, "PowerSAS.m – An Open-Source Power System Simulation Toolbox Based on Semi-Analytical Solution Technologies," in IEEE Open Access Journal of Power and Energy, In Press.
 
 The corresponding BiBTex citations are given below:
 
