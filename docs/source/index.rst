@@ -71,10 +71,8 @@ See the GitHub repository for a full list of contributors.
    :hidden:
 
    install.rst
-   tutorial.rst
    modeling.rst
    cases.rst
-   modelref.rst
    configref.rst
    faq.rst
    troubleshooting.rst
