@@ -22,7 +22,7 @@ The corresponding BiBTex citations are given below:
     @ARTICLE{powersas,
              author={Liu, Jianzhe and Yao, Rui and Qiu, Feng and Liu, Yang and Sun, Kai},
              journal={IEEE Open Access Journal of Power and Energy}, 
-             title={PowerSAS.m – An Open-Source Power System Simulation Toolbox Based on Semi-Analytical Solution Technologies}, 
+             title={{PowerSAS.m} – An Open-Source Power System Simulation Toolbox Based on Semi-Analytical Solution Technologies}, 
              year={2023},
              doi={10.1109/OAJPE.2023.3245040}
             }
