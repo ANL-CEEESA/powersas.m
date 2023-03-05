@@ -7,7 +7,9 @@
 
 ## II. What is PowerSAS.m?
 
-**PowerSAS.m** is a robust, efficient and scalable power grid analysis framework based on semi-analytical solutions (SAS) technology. The **PowerSAS.m** is the version for MATLAB/Octave users. It currently provides the following functionalities (more coming soon!):
+**PowerSAS.m** is a robust, efficient and scalable power grid analysis framework based on semi-analytical solutions (SAS) technology [For more details of the SAS technology](https://powersasm.readthedocs.io/en/latest/sas_basics.html#). 
+
+The **PowerSAS.m** is the version for MATLAB/Octave users. It currently provides the following functionalities (more coming soon!):
 
 * **Steady-state analysis**, including power flow (PF), continuation power flow (CPF), contingency analysis.
 * **Dynamic security analysis**, including voltage stability analysis, transient stability analysis, and flexible user-defined simulation.
