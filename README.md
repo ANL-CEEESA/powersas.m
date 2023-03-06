@@ -18,6 +18,7 @@ The **PowerSAS.m** is the version for MATLAB/Octave users. It currently provides
 #### Key features
 * **High numerical robustness.** Backed by the SAS approach, the PowerSAS tool provides much better convergence than the tools using traditional Newton-type algebraic equation solvers when solving algebraic equations (AE)/ordinary differential equations (ODE)/differential-algebraic equations(DAE).  
 * **Enhanced computational performance.** Due to the analytical nature, PowerSAS provides model-adaptive high-accuracy approximation, which brings significantly extended effective range and much larger steps for steady-state/dynamic analysis. PowerSAS has been used to solve large-scale system cases with 200,000+ buses.
+
 * **Customizable and extensible.** PowerSAS supports flexible customization of grid analysis scenarios, including complex event sequences in extended simulation term.  
 
 ## III. Installation
@@ -182,3 +183,22 @@ The argument list is explained as follows:
 * `width`: Width of figure window in pixels.
 * `height`: Height of figure window in pixels.
 * `sizeRatio`: If `width` or `height` is not specified, the size of the figure is determined by the `sizeRatio` of the screen size. The default value of `sizeRatio` is 0.7.
+
+
+* **Customizable and extensible.** PowerSAS supports flexible customization of grid analysis scenarios, including complex event sequences in extended simulation term. 
+
+## V. Citing
+
+If you are using **PowerSAS.m** in research work to be published, please include explicit citation of our work in your publication. Please place the following entries in your bibliography:
+
+[1]. J. Liu, R. Yao, F. Qiu, Y. Liu and K. Sun, "PowerSAS.m – An Open-Source Power System Simulation Toolbox Based on Semi-Analytical Solution Technologies," in IEEE Open Access Journal of Power and Energy, In Press.
+
+The corresponding BiBTex citations are given below:
+
+    @ARTICLE{powersas,
+             author={Liu, Jianzhe and Yao, Rui and Qiu, Feng and Liu, Yang and Sun, Kai},
+             journal={IEEE Open Access Journal of Power and Energy}, 
+             title={{PowerSAS.m} – An Open-Source Power System Simulation Toolbox Based on Semi-Analytical Solution Technologies}, 
+             year={2023},
+             doi={10.1109/OAJPE.2023.3245040}
+            }
