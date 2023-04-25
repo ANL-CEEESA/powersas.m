@@ -1,10 +1,7 @@
- 
 clc; clear; close;
 addpath('EMT')
 
-testSystem = 'twoarea';
+res = runPowerSAS('emt','twoarea');
 
-[t_final, sol_final] = calEMT(testSystem);
-
-plotEMTResults();
+plotEMTResults(res);
 

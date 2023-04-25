@@ -1,5 +1,5 @@
 
-function [t_final, sol_final] = calEMT(testSystem)
+function [res] = calEMT(testSystem)
 %%
 [orderOfDT, timeStepOfDT] = setSASParameters();
 
@@ -49,6 +49,6 @@ x_ini_post  = x_on(end,:)';
 
 t_post = t_dt;
 x_post = x_dt';
-t_final   = [t_pre;  t_on(2:end);    t_post(2:end)];
-sol_final = [x_pre;  x_on(2:end,:);  x_post(2:end,:)];   
+res.t_final   = [t_pre;  t_on(2:end);    t_post(2:end)];
+res.sol_final = [x_pre;  x_on(2:end,:);  x_post(2:end,:)];   
 return
