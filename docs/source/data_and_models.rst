@@ -5,6 +5,18 @@ Data and Models
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Currently PowerSAS.m supports extended PSAT (Matlab) data format.
+
+In addition, PSS/E data format can be easily converted to the PSAT data format 
+using the ``psse2mpc`` function by MATPOWER and the ``matpower2psat`` function
+by PSAT. A sample code to convert a PSS/E *raw file to the PSAT format is below:
+.. code:: matlab
+
+    casename = 'ieee14'
+    [mpc, warnings] = psse2mpc(horzcat(casename,'.raw'),horzcat(casename,'.m'));
+    check = matpower2psat(horzcat(casename,'.m'), pwd);
+
+
+
 Support for other formats and data format conversion features will be
 added in future versions.
 
