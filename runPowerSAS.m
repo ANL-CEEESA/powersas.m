@@ -99,6 +99,8 @@ end
 %% main body 
 if strcmp(simType,'pf')
     res=calPF(SysData,options,caseName);
+elseif strcmp(simType,'emt')
+    res=calEMT(data);
 elseif strcmp(simType,'cpf')
     res=calCPF(SysData,options,caseName,varargin{:});    
 elseif strcmp(simType,'tsa')

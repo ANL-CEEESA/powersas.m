@@ -1,0 +1,6 @@
+
+03:20:33[INFO]The session ID is 20230425T032033017.
+03:20:33[INFO]CASE twoarea. Timestamp=20230425T032033017.
+03:20:33[INFO]Finished loading data file. 
+03:20:41[INFO]
+
