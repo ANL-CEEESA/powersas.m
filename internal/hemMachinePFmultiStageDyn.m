@@ -146,6 +146,7 @@ nZip=size(zip,1);
 % psiqc=zeros(nSyn,1);dpsiqc=zeros(nSyn,1);
 
 alphaList=0;
+ratiob4 = NaN;
 diffList=0;
 diffMul=1.05;
 alphaPreMult=0.91;
@@ -198,7 +199,7 @@ if ~isempty(varOpt) && isfield(varOpt,'useNomoveCtrl')
 else
     useNomoveCtrl=1;
 end
-
+alphab4 = NaN;
 while alphaConfirm<maxAlpha-alphaTol/1000
     alpha=min([segAlpha,maxAlpha-alphaConfirm]);
     alphax=alpha/alphaPreMult;
@@ -263,8 +264,12 @@ while alphaConfirm<maxAlpha-alphaTol/1000
     SysParax.refs=refs;  
     
     [V,Q,s,d,w,eq1,eq2,ed1,ed2,psid,psiq,Pm,Ef,Vavrm,Vavrr,Vavrf,Vavrref,tgovg,tgovm,Tmech,f,dpg,qplt,vg]=...
-        hemMachinePFSalientcontinueDyn(SimData,SysDatax,SysParax,xx);    
+        hemMachinePFSalientcontinueDyn(SimData,SysDatax,SysParax,xx);
     
+    
+
+    
+    %check the dirivative of every state variables w.r.t. time 
     ds=s(:,2:end).*repmat(1:(size(s,2)-1),size(s,1),1);
     dd=d(:,2:end).*repmat(1:(size(d,2)-1),size(d,1),1);
     dw=w(:,2:end).*repmat(1:(size(w,2)-1),size(w,1),1);    
@@ -285,7 +290,8 @@ while alphaConfirm<maxAlpha-alphaTol/1000
     df=f(:,2:end).*repmat(1:(size(f,2)-1),size(f,1),1); %agc
     ddpg=dpg(:,2:end).*repmat(1:(size(dpg,2)-1),size(dpg,1),1); %agc
     % TODO: avc
-    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% main part of pade    
     [Va,Vb]=getPadeApproxHelm(V,0);
     idxNanV=find(isnan(Va(:,1))|isnan(Vb(:,1)));Va(idxNanV,:)=0;Vb(idxNanV,:)=0;Va(idxNanV,1:3)=V(idxNanV,1:3);
     [Qa,Qb]=getPadeApproxHelm(Q,find(busType==0));
@@ -333,7 +339,8 @@ while alphaConfirm<maxAlpha-alphaTol/1000
     
     [qplta,qpltb]=getPadeApproxHelm(qplt,0);
     [vga,vgb]=getPadeApproxHelm(vg,0);
-    
+% main part of pade
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     if ~isempty(ind)
         idxNanS=find(isnan(sa(:,1))|isnan(sb(:,1)));sa(idxNanS,:)=0;sb(idxNanS,:)=0;sa(idxNanS,1:2)=s(idxNanS,1:2);
         idxNandS=find(isnan(dsa(:,1))|isnan(dsb(:,1)));dsa(idxNandS,:)=0;dsb(idxNandS,:)=0;dsa(idxNandS,1:2)=ds(idxNandS,1:2);
@@ -385,11 +392,53 @@ while alphaConfirm<maxAlpha-alphaTol/1000
         
     end
     
+    
     alphaLeft=0;
     alphaRight=alpha/alphaPreMult;
+     
+    
+      %khuangJune14
+    % here we utilize PI control strategy instead of bisection search.
+    % local truncation error is required from all state variable
+   %-------------------------------------------------------------------------------------------
+    
+
+     local_x=foldX(SysDatax,V,Q,s,d,w,eq1,eq2,ed1,ed2,psid,psiq,Pm,Ef,Vavrm,Vavrr,Vavrr,Vavrref,tgovg,tgovm,Tmech,f,dpg,qplt,vg);
+%     if alphax>0
+%         if size(alphaList,2)>1&&~isnan(alphab4)
+%         
+%             [K,h,~]      =VSOO(LTE,LTE2,LTE3,SimData,alphab4,ratiob4);
+% %             if isnan(h)
+% %                  h
+% %             end
+% %         SimData.nlvl = K;
+% %         alphax       = h;
+% %         alphaRight   = h ;
+% %         alphaLeft  = 0.8*h;
+%         
+% %         K
+% %         h
+%         end
+%     else
+%         alphaRight = 0;
+%     end
+% % %  LTE=0;   
+%    %------------------------------------------------------------------------------------------ 
+%     
+%       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     %     alphax=0.2;
     while 1
-        
+        %pade
         vc=polyvalVec(Va(:,end:-1:1),alphax)./polyvalVec([Vb(:,end:-1:1),ones(size(Vb,1),1)],alphax);
         
         qc=polyvalVec(Qa(:,end:-1:1),alphax)./polyvalVec([Qb(:,end:-1:1),ones(size(Qb,1),1)],alphax);
@@ -439,6 +488,7 @@ while alphaConfirm<maxAlpha-alphaTol/1000
         qpltc=polyvalVec(qplta(:,end:-1:1),alphax)./polyvalVec([qpltb(:,end:-1:1),ones(size(qplt,1),1)],alphax);
         vgc=polyvalVec(vga(:,end:-1:1),alphax)./polyvalVec([vgb(:,end:-1:1),ones(size(vg,1),1)],alphax);
 %         Y=Ytr0x+alphax*Ytr1+sparse(1:nbus,1:nbus,Ysh0x+Ysh1*alphax,nbus,nbus);
+        %pade b4
         Vsp2=Vsp0x+alphax*VspSq2(:,2);
         
         pqxx=pqx;
@@ -471,8 +521,9 @@ while alphaConfirm<maxAlpha-alphaTol/1000
         
         diff=checkEquationBalanceSynDyn(SysDataxx,SysParaxx,xc,dxc);
         absDiff=max(abs(diff));
-        
-        if absDiff<diffTol&&alphax==alpha/alphaPreMult
+        %bisection search
+%         if absDiff<diffTol&&alphax==alpha/alphaPreMult
+        if absDiff<diffTol&&alphax==alpha/alphaPreMult            
             alphaLeft=alphaRight;
         else
             if absDiff<diffTol
@@ -489,14 +540,35 @@ while alphaConfirm<maxAlpha-alphaTol/1000
         end
     end
     
-    diffParadigm=absDiff+1e-12;
-    countCheckAlpha=1;
-    alphax=alphaLeft*alphaPreMult;
+     diffParadigm=absDiff+1e-12;
+     countCheckAlpha=1;
+     alphax=alphaLeft*alphaPreMult;
     if alpha-alphax<alphaTol/1000
         alphax=alpha;
     end
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
     maxCount=10;
-    while countCheckAlpha<maxCount        
+    
+   
+  
+    
+    while countCheckAlpha<maxCount   
+        %pade
         vc=polyvalVec(Va(:,end:-1:1),alphax)./polyvalVec([Vb(:,end:-1:1),ones(size(Vb,1),1)],alphax);
         
         qc=polyvalVec(Qa(:,end:-1:1),alphax)./polyvalVec([Qb(:,end:-1:1),ones(size(Qb,1),1)],alphax);
@@ -545,6 +617,7 @@ while alphaConfirm<maxAlpha-alphaTol/1000
                 
         qpltc=polyvalVec(qplta(:,end:-1:1),alphax)./polyvalVec([qpltb(:,end:-1:1),ones(size(qplt,1),1)],alphax);
         vgc=polyvalVec(vga(:,end:-1:1),alphax)./polyvalVec([vgb(:,end:-1:1),ones(size(vg,1),1)],alphax);
+        % pade b4
         
 %         Y=Ytr0x+alphax*Ytr1+sparse(1:nbus,1:nbus,Ysh0x+Ysh1*alphax,nbus,nbus);
         Vsp2=Vsp0x+alphax*VspSq2(:,2);
@@ -578,13 +651,13 @@ while alphaConfirm<maxAlpha-alphaTol/1000
         SysParaxx.refs=refs; 
         
         diff=checkEquationBalanceSynDyn(SysDataxx,SysParaxx,xc,dxc);
-        
         if max(abs(diff))<1.05*diffParadigm
             break;
         end
         alphax=alphax*alphaPreMult;
         countCheckAlpha=countCheckAlpha+1;
     end
+    
     if countCheckAlpha>=maxCount;alphax=alphax/alphaPreMult;end
     alpha=alphax;
     
@@ -606,7 +679,7 @@ while alphaConfirm<maxAlpha-alphaTol/1000
     else
         strPre=['Step=',num2str(alphaConfirm,'%7.5f'),', '];
     end
-    addLog([strPre,'dt=',num2str(alpha,'%7.5f'),', (maxdiff<',num2str(diffTol),').'],'INFO');
+    addLog([strPre,'dt=',num2str(alpha,'%7.5f'),', K=',num2str(SimData.nlvl,'%7.1f'),', (maxdiff<',num2str(diffTol),').'],'INFO');
 %     addLog(['Fluctuation=',num2str(max(fluctuation)),' rate=',num2str(max(fluctuation)/maxTcoeff),'.'],'INFO');
     
     if alpha==0
@@ -828,8 +901,13 @@ while alphaConfirm<maxAlpha-alphaTol/1000
         Vavrref0x=Vavrrefcx(:,end);tgovg0x=tgovgcx(:,end);tgovm0x=tgovmcx(:,end);Tmech0x=Tmechcx(:,end);
         f0x=fcx(:,end);dpg0x=dpgcx(:,end);qplt0x=qpltcx(:,end);vg0x=vgcx(:,end);
         
-        alphaList=[alphaList,alpha];
-        diffList=[diffList,max(abs(diff))];
+        
+        
+%         [LTE,LTE2,LTE3] = Cal_locl_er(local_x,SimData.nlvl,alpha);
+%         ratiob4 = LTE./alpha;
+%         alphab4 = alpha;
+%         alphaList=[alphaList,alpha];
+%         diffList=[diffList,max(abs(diff))];
         
         if allowModelSwitch
             if exitFlag==DynSimFlag.STEADY||exitFlag==DynSimFlag.QSS

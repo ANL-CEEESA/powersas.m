@@ -52,7 +52,7 @@ function [stateCurve,t,finalAlpha,alphaList,diffList,exitFlag]=simulationTimeDom
 %       1 - Modified Euler
 %       2 - RK4
 %       3 - Trapezoidal
-%
+%       4 - DT
 %   Y - Method for solving algebraic equations (AE)
 %       0 - HE
 %       1 - NR

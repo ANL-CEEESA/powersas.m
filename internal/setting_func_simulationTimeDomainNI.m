@@ -29,5 +29,5 @@
 
 maxStep=0.02;
 minStep=5e-5;
-stepCntThreshold=20;
+stepCntThreshold=5;
 stepSizeEps=1e-9;

@@ -118,6 +118,10 @@ if DEmethod==0
     [stateUpd,t,finalAlpha,alphaList,diffList,exitFlag]=simulationTimeDomainHem(SimData,SysDataTmp,SysPara,x0);
     alphaList=cumsum(alphaList);
     SimDataUpd=SimData;
+elseif DEmethod==4
+    [stateUpd,t,finalAlpha,alphaList,diffList,exitFlag]=simulationTimeDomainDT(SimData,SysDataTmp,SysPara,x0);
+    alphaList=cumsum(alphaList);
+    SimDataUpd=SimData;
 else
     [stateUpd,t,diffList,nxtDt,exitFlag]=simulationTimeDomainNI(SimData,SysDataTmp,SysPara,x0);
     finalAlpha=t(end);

@@ -43,6 +43,7 @@ function [SysDataUpd,x0,finalAlpha,alphaList,diff,t,stateCurve]=calculateInitial
     MatGV0,MatGV1,MatGRhs0,MatGRhs1,Tmech1,Varref1,Ef1,Pm1,Eq11]=unfoldSysPara(SysPara);
 ltc=[];sup=[];dem=[];busName=[];
 % pv=[]; % with synchronous generators, the PV buses are not useful
+[bus,pv,pq,sw,line,shunt,ind,zip,syn,exc,tg,agc,cac,cluster,pm,oldToNew,newToOld]=regulateSystemData(bus,pv,pq,sw,line,shunt,ind,zip,syn,exc,tg,agc,cac,cluster);
 [nIslands,islands]=searchIslands(bus(:,1),line(:,[1,2]));
 if nIslands>1
     addLog('There are more than 1 islands in the system. Only the largest island will be analyzed.','INFO');
@@ -50,7 +51,9 @@ if nIslands>1
     [bus,~,pq,sw,line,ltc,sup,dem,shunt,ind,zip,syn,busName,newToOld,oldToNew,pvInd,pqInd,swInd,lineInd,ltcInd,supInd,demInd,shuntInd,indInd,zipInd,synInd] ...
         =forgeLargestIsland(maxIsland,nIslands,islands,bus,[],pq,sw,line,ltc,sup,dem,shunt,ind,zip,syn,busName);
 end
-
+if ~isempty(Pm1)
+    pm=Pm1;
+end
 nbus=size(bus,1);
 nline=size(line,1);
 nIslands=1;
@@ -79,11 +82,7 @@ if isempty(syn)&&isempty(sw)
     addLog('Steady-state analysis needs at Swing bus or synchronous machine(s) in the system.','ERROR');
     return;
 end
-
-[bus,pv,pq,sw,line,shunt,ind,zip,syn,exc,tg,agc,cac,cluster,pm,oldToNew,newToOld]=regulateSystemData(bus,pv,pq,sw,line,shunt,ind,zip,syn,exc,tg,agc,cac,cluster);
-if ~isempty(Pm1)
-    pm=Pm1;
-end
+% [bus,pv,pq,sw,line,shunt,ind,zip,syn,exc,tg,agc,cac,cluster,pm,oldToNew,newToOld]=regulateSystemData(bus,pv,pq,sw,line,shunt,ind,zip,syn,exc,tg,agc,cac,cluster);
 nbus=size(bus,1);
 nline=size(line,1);
 % nlvl=10;

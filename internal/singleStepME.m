@@ -89,7 +89,9 @@ if AEmethod==0
         exitflag=-1;
     end
 else
-    [stateNew,flag,diffRec,loop]=restorationAlgebraicNR(SimData,SysData,SysParax,xt,xTemp);
+    %khuang Sep 6
+    [stateNew,flag,diffRec,loop]=solveAlgebraicNR(SimData,SysData,SysParax,xt,xTemp);
+%     [stateNew,flag,diffRec,loop]=restorationAlgebraicNR(SimData,SysData,SysParax,xt,xTemp);
     if flag~=0
         addLog(['NR does not converge!'],'WARN');
         exitflag=-1;

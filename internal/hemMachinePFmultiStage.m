@@ -92,8 +92,8 @@ while alphaConfirm<1-alphaTol/1000
     
     x=zeros(nState,1);
     x(idxs.vIdx)=V0x;x(idxs.sIdx)=s0x;x(idxs.deltaIdx)=d0x;x(idxs.qIdx)=Q0x;x(idxs.efIdx)=Ef0x;x(idxs.pgIdx)=Pm0x;
-    SysDatax=foldSysData(bus,sw,pvx,pqx,shuntx,line,indx,zipx,syn,exc,tg,agc,cac,cluster);
-    SysParax=foldSysPara(pqIncr,pvIncr,Rind0x,Rind1,Reind0x,Reind1,Rzip0x,Rzip1,Ytr,[],Ysh0x,Ysh1,[Vsp0x,VspSq2(:,2)],[],[],[],[],[],[],Ef1,Pm1);
+    SysDatax     =foldSysData(bus,sw,pvx,pqx,shuntx,line,indx,zipx,syn,exc,tg,agc,cac,cluster);
+    SysParax     =foldSysPara(pqIncr,pvIncr,Rind0x,Rind1,Reind0x,Reind1,Rzip0x,Rzip1,Ytr,[],Ysh0x,Ysh1,[Vsp0x,VspSq2(:,2)],[],[],[],[],[],[],Ef1,Pm1);
     SysParax.iden=iden;
     if exist([iden,'.mat'],'file')
         if ~exist('p_amd','var')
