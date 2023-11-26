@@ -64,7 +64,12 @@ else
         snapshot=[];
         hotStart=0;
     end
-    simSettings.eventList=[simSettings.eventList;[2   0.0000  options.simLen   50    1 0.0  0.0000]];
+    if options.method==4
+        simSettings.eventList(1,6) = 4;
+        simSettings.eventList=[simSettings.eventList;[2   0.0000  options.simLen   50    1 4.0  0.0000]];
+    else 
+        simSettings.eventList=[simSettings.eventList;[2   0.0000  options.simLen   50    1 0.0  0.0000]];
+    end
     simSettings.evtDynZipRamp=zipRamp;
     simSettings.evtDynPV=pvRamp;
     simSettings.evtDyn=zeros(1,23); simSettings.evtDyn(1,1)=1;

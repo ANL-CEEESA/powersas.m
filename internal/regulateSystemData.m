@@ -127,9 +127,9 @@ if ~isempty(syn)
     if ~isempty(pv)
         pg(pv(:,1))=pv(:,4);
     end
-    %         if ~isempty(sw)
-    %             pg(sw(:,1))=sw(:,10);
-    %         end
+%             if ~isempty(sw)
+%                 pg(sw(:,1))=sw(:,10);
+%             end
     pm=pg(syn(:,1));
     nm=accumarray(syn(:,1),ones(size(syn,1),1),[nbus,1]);
     pm=pm./nm(syn(:,1));

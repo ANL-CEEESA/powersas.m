@@ -28,6 +28,13 @@ function seq=getseq(n,d)
 % ***************************************************************************************************
 % 
 
+%NCHOOSEK(N,K) where N and K are non-negative integers returns N!/K!(N-K)!.
+%NCHOOSEK(V,K) where V is a vector of length N, produces a matrix
+%with N!/K!(N-K)! rows and K columns. Each row of the result has K of
+%the elements in the vector V. This syntax is only practical for
+%situations where N is less than about 15.
+
+
 aux=nchoosek(1:(n+d-1),d-1);
 aaux=[zeros(size(aux,1),1),aux,(n+d)*ones(size(aux,1),1)];
 seq=aaux(:,2:end)-aaux(:,1:end-1)-1;

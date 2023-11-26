@@ -60,6 +60,7 @@ else
     addLog(['OUTPUT IS DISABLED. Check ',options.outputPath,'/~default_log.txt for logs.'],'DEBUG');
 end
 addLog(['The session ID is ',timestamp,'.'],'INFO');
+%khuang 919
 options.timestamp=timestamp;
 
 homePath=pwd;
@@ -167,9 +168,9 @@ function options=regulateOptions(options)
 if nargin<1
     options=[];
 end
-if ~isfield(options,'dataPath');options.dataPath=[pwd,'\data'];end
+if ~isfield(options,'dataPath');options.dataPath=[pwd,'/data'];end
 if ~isfield(options,'settingPath');options.settingPath=options.dataPath;end
 if ~isfield(options,'dbstop');options.dbstop=0;end
 if ~isfield(options,'output');options.output=0;end
-if ~isfield(options,'outputPath');options.outputPath=[pwd,'\output'];end
+if ~isfield(options,'outputPath');options.outputPath=[pwd,'/output'];end
 end

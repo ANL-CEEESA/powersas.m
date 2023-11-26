@@ -163,7 +163,7 @@ else
 end
 
 %% Temporary code here
-% eventList(:,6)=0.0;
+% eventList(:,6)=4.00;
 % eventList(:,7)=0.1;
 % Efstd=1.2;
 % evtDynZip(:,2)=0.2;
@@ -194,8 +194,9 @@ if ~hotStart
         [SysData,x0,finalAlpha,alphaList,diff]=calculateInitialState(SysData,SimDataStatic,SysPara);
     else % Full system steady-state
         
-        [busBase,pvBase,pqBase,swBase,lineBase,shuntBase,indBase,zipBase,synBase,excBase,tgBase,agcBase,cacBase,clusterBase,pm]=...
-            regulateSystemData(busBase,pvBase,pqBase,swBase,lineBase,shuntBase,indBase,zipBase,synBase,excBase,tgBase,agcBase,cacBase,clusterBase);
+%         [busBase,pvBase,pqBase,swBase,lineBase,shuntBase,indBase,zipBase,synBase,excBase,tgBase,agcBase,cacBase,clusterBase,pm]=...
+%               regulateSystemData(busBase,pvBase,pqBase,swBase,lineBase,shuntBase,indBase,zipBase,synBase,excBase,tgBase,agcBase,cacBase,clusterBase);
+%         pvBase(:,4)=pm;
         bus=busBase;sw=swBase;pv=pvBase;pq=pqBase;shunt=shuntBase;
         line=lineBase;ind=indBase;zip=zipBase;syn=synBase;exc=excBase;tg=tgBase;
         agc=agcBase;cac=cacBase;cluster=clusterBase;

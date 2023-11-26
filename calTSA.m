@@ -78,9 +78,13 @@ else
     nAggFault=size(aggFaultIdxAux,1)-1;
     simSettings.evtFault=[(1:nAggFault)',aggFaultIdxAux(1:nAggFault),aggFaultIdxAux(2:nAggFault+1)-1];
     simSettings.evtFaultSpec=faultEventsSort(:,1:end-1);
+    simSettings.eventList(1,6) = options.method;
     simSettings.eventList=[simSettings.eventList;[(2:nAggFault+1)',faultEventsSort(aggFaultIdxAux(1:nAggFault),end),...
         zeros(nAggFault,1),6*ones(nAggFault,1),(1:nAggFault)',repmat(simSettings.eventList(1,[6,7]),nAggFault,1)]];
     simSettings.eventList=[simSettings.eventList;[nAggFault+2,options.simLen,0,99,0,simSettings.eventList(1,[6,7])]];
+    
+    
+
     
     res=runDynamicSimulationExec(caseName,SysData,simSettings,options,snapshot);
 end

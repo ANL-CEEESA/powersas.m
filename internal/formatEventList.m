@@ -91,8 +91,15 @@ if ~isempty(sstTime)
         end
     end
 end
-eventAdd=[zeros(size(stTime,1),1),stTime,endTime,EvtType.DYN_SIM*ones(size(stTime,1),1),zeros(size(stTime,1),1),MethodType.FULL_HE*ones(size(stTime,1),1),SimSet.DEFAULT_DT*ones(size(stTime,1),1)];
-
+%khuang 5 Jul
+if event(1,6) ==0
+    eventAdd=[zeros(size(stTime,1),1),stTime,endTime,EvtType.DYN_SIM*ones(size(stTime,1),1),zeros(size(stTime,1),1),MethodType.FULL_HE*ones(size(stTime,1),1),SimSet.DEFAULT_DT*ones(size(stTime,1),1)];
+elseif event(1,7) >0
+    eventAdd=[zeros(size(stTime,1),1),stTime,endTime,EvtType.DYN_SIM*ones(size(stTime,1),1),zeros(size(stTime,1),1),event(1,6)*ones(size(stTime,1),1),event(1,7)*ones(size(stTime,1),1)];
+else
+    eventAdd=[zeros(size(stTime,1),1),stTime,endTime,EvtType.DYN_SIM*ones(size(stTime,1),1),zeros(size(stTime,1),1),event(1,6)*ones(size(stTime,1),1),SimSet.DEFAULT_DT*ones(size(stTime,1),1)];
+end 
+%%%%%%%%%%%%%%%%
 eventExt=[eventSort;eventAdd];
 [~,iSort]=sort(eventExt(:,2)+(eventExt(:,4)==EvtType.DYN_SIM)*minDiffTime/2+(eventExt(:,4)==EvtType.DYN_SIM).*eventExt(:,3)/eSortTemp(end)*minDiffTime/4);
 eventExt=eventExt(iSort,:);

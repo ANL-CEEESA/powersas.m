@@ -49,6 +49,9 @@ try
     if exist('diffTolMax','var');simSettings.diffTolMax=diffTolMax;end
     if exist('method','var');simSettings.method=method;end
     if exist('diffTolCtrl','var');simSettings.diffTolCtrl=diffTolCtrl;end
+    %%%%%%khuang Sep 5
+    if exist('dAlpha','var');simSettings.dAlpha=dAlpha;end
+    %%%%%%%%%%%%%%%%
     simSettings.eventList=eventList;
     simSettings.bsSyn=bsSyn;
     simSettings.bsBus=bsBus;

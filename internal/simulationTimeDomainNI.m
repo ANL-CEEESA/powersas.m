@@ -75,9 +75,9 @@ else
 end
 
 [~,~,~,~,~,~,~,~,method]=unfoldSimData(SimData);
-DEmethod=floor(method);
-AEmethod=round(10*mod(method,1));
-varStep=round(100*mod(method,0.1));
+DEmethod =floor(method);
+AEmethod =round(10*mod(method,1));
+varStep  =round(100*mod(method,0.1));
 
 eval('setting_func_simulationTimeDomainNI');
 if varStep~=0
@@ -85,7 +85,7 @@ if varStep~=0
 dt=min([maxStep,max([minStep,dt])]);
 %
 end
-
+% dt = 0.01;
 tt=0;
 diffList=0;
 
@@ -230,7 +230,6 @@ while tt(end)+dt<=maxTime+stepSizeEps
         SysDataOrig=foldSysData(bus,sw,pv,pq,shunt,line,ind,zip,syn,exc,tg,agc,cac,cluster);
         
         [xTemp,diff,exitflag]=singleStepRK4(SimDatax,SysDataOrig,SysParaOrig,xt,tt(end),dt,iden,AEmethod);
-        
         if exitflag~=0
             if varStep
                 dt=max([minStep,dt/10]);
@@ -257,7 +256,7 @@ while tt(end)+dt<=maxTime+stepSizeEps
                 maxErrX=max(abs(errX));
                 errPtoX=[errPtoX;maxErrX/diffList(end)];
                 stepRatio=min([max([(diffTol*mean(errPtoX)/2/maxErrX)^0.2,0.3]),2]);
-                nxtDt=correctRatio^1.5*0.95*dt*stepRatio;
+                nxtDt=correctRatio^1.9*0.99*dt*stepRatio;
                 correctRatio=sqrt(correctRatio);
                 disp('');
             end

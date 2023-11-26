@@ -30,6 +30,7 @@ function MethodType=getSimMethodType()
 % 
 
 MethodType.FULL_HE=0.0;
+MethodType.FULL_DT=4.0;
 MethodType.ME_HE=1.0;
 MethodType.ME_NR=1.1;
 MethodType.RK4_HE=2.0;
