@@ -7,7 +7,7 @@
 
 ## II. What is PowerSAS.m?
 
-**PowerSAS.m** is a robust, efficient and scalable power grid analysis framework based on semi-analytical solutions (SAS) technology. [(Click here for more details of the SAS technology)](https://powersasm.readthedocs.io/en/latest/sas_basics.html#). 
+**PowerSAS.m** is a numerically robust and computationally efficient power grid analysis tool based on semi-analytical solutions (SAS) technology. [(Click here for more details of the SAS technology)](https://powersasm.readthedocs.io/en/latest/sas_basics.html#). 
 
 The **PowerSAS.m** is the version for MATLAB/Octave users. It currently provides the following functionalities (more coming soon!):
 
